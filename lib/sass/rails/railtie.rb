@@ -74,8 +74,8 @@ module Sass::Rails
 
     initializer :setup_compression, :group => :all do |app|
       if app.config.assets.compress
-        app.config.sass.style = :compressed
-        app.config.assets.css_compressor = CssCompressor.new
+        app.config.sass.style ||= :compressed
+        app.config.assets.css_compressor ||= CssCompressor.new
       end
     end
   end
